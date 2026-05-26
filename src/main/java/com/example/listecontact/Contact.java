@@ -1,10 +1,22 @@
 package com.example.listecontact;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "contacts") // nom de la table
+
 public class Contact {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String prenom;
     private String nom;
     private String email;
     private String telephone;
+
+    public Contact () {} // constructeur sans parametre
 
     public Contact (String prenom, String nom, String email, String telephone) {
         this.prenom = prenom;
@@ -12,7 +24,9 @@ public class Contact {
         this.email = email;
         this.telephone = telephone;
     }
+
     //les getters et les setters
+    public Long getId() { return id;}
     public String getPrenom() {return prenom;}
     public void setPrenom(String prenom){ this.prenom = prenom;}
 
