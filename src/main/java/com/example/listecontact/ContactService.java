@@ -23,4 +23,8 @@ public class ContactService {
     public void add(Contact contact) {repository.save(contact); }
 
     public void remove (Contact contact) {repository.delete(contact); }
+
+    public Contact save(Contact contact) {
+        return repository.save(contact);  // JPA gère l'UPDATE si l'id existe déjà
+    }
 }

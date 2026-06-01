@@ -107,6 +107,7 @@ private void ouvrirModification(Contact contact) {
         contact.setNom(nom.getValue());
         contact.setEmail(email.getValue());
         contact.setTelephone(telephone.getValue());
+        service.save(contact);
         grid.setItems(service.findAll()); // rafraîchir
         dialog.close();
     });
